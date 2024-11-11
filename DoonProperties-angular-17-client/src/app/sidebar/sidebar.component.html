@@ -1,0 +1,23 @@
+
+<div class="sidebar-wrapper" style="overflow: hidden !important;">
+  <div class="logo">
+    <a routerLink="/dashboard" class="simple-text logo-mini">
+      <div class="logo-image-small">
+        <img src="assets/img/logo/doon-prop.png">
+      </div>
+    </a>
+    <a routerLink="/dashboard" class="simple-text logo-normal">
+      Doon Properties
+    </a>
+  </div>
+    <ul class="nav">
+        <li *ngFor="let menuItem of menuItems" [ngClass]="{ 'active': isActive(menuItem.path) }"
+          class="{{menuItem.class}}" >
+            <a [routerLink]="[menuItem.path]">
+                <!-- <i class="nc-icon {{menuItem.icon}}"></i> -->
+                <i class="fa {{menuItem.icon}}" aria-hidden="true"></i>
+                <p>{{menuItem.title}}</p>
+            </a>
+        </li>
+    </ul>
+</div>
