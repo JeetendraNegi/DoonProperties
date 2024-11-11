@@ -1,0 +1,51 @@
+table {
+    width: 100%;
+    margin: 0px 0px 15px 5px;
+}
+
+th.mat-sort-header-sorted {
+    color: black;
+}
+
+td {
+    // min-width: 50px;
+    // max-width: 100px;
+    padding: 5px;
+}
+
+.mat-mdc-header-row {
+    background-color: #f4f3ef !important;
+}
+
+.paginator-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.space {
+    margin-right: 5px;
+}
+
+.active {
+    color: green;
+    font-weight: bold;
+}
+
+.inactive {
+    color: red;
+    font-weight: bold;
+}
+
+.action {
+    font-weight: bold; 
+    font-size: 20px; 
+    cursor: pointer;
+}
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}

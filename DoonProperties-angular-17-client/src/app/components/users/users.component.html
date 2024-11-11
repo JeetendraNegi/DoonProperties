@@ -1,0 +1,112 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">Application Users</h5>
+        <p class="card-category">A list of all users.</p>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div style="margin-left: 5px;">
+              <a class="btn btn-success" routerLink="/add-users">
+                <i class="fa fa-plus space" aria-hidden="true"></i>
+                Add New User
+              </a>
+            </div>
+            <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+              <!-- S. no -->
+              <ng-container matColumnDef="sn">
+                <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by S.No">
+                  S.No
+                </th>
+                <td mat-cell *matCellDef="let element, let i = index"> {{i + 1}} </td>
+              </ng-container>
+
+              <!-- User name -->
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by User Name">
+                  User Name
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.firstName}} {{element.middleName}} {{element.lastName}} </td>
+              </ng-container>
+
+              <!--Address Column -->
+              <ng-container matColumnDef="address">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Address">
+                  Address
+                </th>
+                <td mat-cell *matCellDef="let element" title="{{element.address.street}}, {{element.address.city}},
+                 {{element.address.state}} {{element.address.country}} ({{element.address.zipCode}})">
+                   {{element.address.street.length > 20 ? element.address.street.substring(0, 20) + '...' : element.address.street}},
+                   {{element.address.city}}, {{element.address.state}} {{element.address.country}} ({{element.address.zipCode}})
+                </td>
+              </ng-container>
+
+              <!-- Contact Details -->
+              <ng-container matColumnDef="contactDetails">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by User Contact details">
+                  Contact Details
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.contactDetails.join(', ')}} </td>
+              </ng-container>
+
+              <!-- Emails -->
+              <ng-container matColumnDef="emails">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by User Emails">
+                  User Email Ids
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.email.join(', ')}} </td>
+              </ng-container>
+
+              <!-- User Type -->
+              <ng-container matColumnDef="userType">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by User User Type">
+                  User Type
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.userType}} </td>
+              </ng-container>
+
+              <!-- Status Column -->
+              <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Status">
+                  Status
+                </th>
+                <td mat-cell *matCellDef="let element" [ngClass]="{ 'active': element.isActive, 'inactive': !element.isActive }">
+                   {{element.isActive ? 'Active' : 'InActive'}}
+                </td>
+              </ng-container>
+
+              <!-- Action Column -->
+              <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef >Actions</th>
+                <td mat-cell *matCellDef="let element"> 
+                  <!-- <button class="btn btn-info btn-sm space" (click)="btnEditUserClick(element.id)">
+                    <i class="fa fa-pencil space" aria-hidden="true"></i>
+                    Edit
+                  </button>
+                  <button class="btn btn-danger btn-sm" (click)="btnDeleteUserTypeClick(element.id)">
+                    <i class="fa fa-trash-o space" aria-hidden="true"></i>
+                    Delete
+                  </button> -->
+                  <a><i class="fa fa-pencil-square-o space action green" title="Edit User" aria-hidden="true"
+                    (click)="btnEditUserClick(element.id)"></i></a>
+                  <a><i class="fa fa-trash-o space action red" title="Delete User" aria-hidden="true"
+                    (click)="btnDeleteUserClick(element.id)"></i></a>
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            <div class="paginator-container">
+              <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

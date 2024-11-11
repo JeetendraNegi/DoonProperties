@@ -1,0 +1,76 @@
+<div class="body container">
+    <div class="row">
+        <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+            <div class="panel border bg-white">
+                <div class="panel-heading">
+                    <h3 class="pt-3 font-weight-bold">Sign Up</h3>
+                </div>
+                <div class="panel-body p-3">
+                    <form>
+                        <div class="form-group py-2">
+                            <div class="input-field">
+                                <input type="text" [(ngModel)]="appUser.firstName" placeholder="User First Name" required>
+                            </div>
+                        </div>
+                        <div class="form-group py-2">
+                            <div class="input-field">
+                                <input type="text" [(ngModel)]="appUser.middleName" placeholder="User Middle Name" required>
+                            </div>
+                        </div>
+                        <div class="form-group py-2">
+                            <div class="input-field">
+                                <input type="text" [(ngModel)]="appUser.lastName" placeholder="User Last Name" required>
+                            </div>
+                        </div>
+                        <div class="form-group py-1 pb-2">
+                            <div class="input-field">
+                                <textarea [(ngModel)]="appUser.address.street" placeholder="User Address" required cols="15" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group py-1 pb-2">
+                            <div class="input-field">
+                                <input type="text" [(ngModel)]="appUser.address.zipCode" placeholder="Pin Code 248001" required>
+                            </div>
+                        </div>
+                        <div class="form-group py-2">
+                            <div class="input-field">
+                                <input type="text" placeholder="Contact No:  '1234567890', '0987654321'" required>
+                            </div>
+                        </div>
+                        <div class="form-group py-2">
+                            <div class="input-field">
+                                <input type="text" placeholder="Email:  'user1@email.com', 'user2@email.com'" required>
+                            </div>
+                        </div>
+                        <div class="form-group py-1 pb-2">
+                            <div class="input-field">
+                                <input type="password" [(ngModel)]="userPassword" placeholder="User Password" required>
+                            </div>
+                        </div>
+                        <div class="form-group py-1 pb-2">
+                            <div class="input-field">
+                                <input type="password" [(ngModel)]="confirmPassword" placeholder="Confirm Password" required>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-block mt-3" (click)="btnSignUpClick()">Sign Up</button>
+                        <div class="text-center pt-4 text-muted">Already have an account?
+                            <a routerLink="/login">Sign in</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="mx-3 my-2 py-2 bordert">
+                    <div class="text-center py-3">
+                        <a href="javascript:void(0)" class="px-2">
+                            <i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                        <a href="javascript:void(0)" class="px-2">
+                            <i class="fa fa-google-plus-square" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="px-2">
+                            <i class="fa fa-github-square" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

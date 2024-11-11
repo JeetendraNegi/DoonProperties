@@ -1,0 +1,105 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">{{formText}}</h5>
+                <p class="card-category">Add/Update Users.</p>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <a class="btn btn-info" routerLink="/users">
+                            <i class="fa fa-arrow-left margin-right-5px" aria-hidden="true"></i>
+                            Back to List
+                        </a>
+                        <div class="panel-body p-3">
+                            <form>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="firstName">First Name</label>
+                                        <input type="text" class="form-control" id="firstName" name="firstName"
+                                            [(ngModel)]="appUser.firstName" placeholder="User First Name">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="middleName">Middle Name</label>
+                                        <input type="text" class="form-control" id="middleName" name="middleName"
+                                            [(ngModel)]="appUser.middleName" placeholder="User Middle Name">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="lastName">Last Name</label>
+                                        <input type="text" class="form-control" id="lastName" name="lastName"
+                                            [(ngModel)]="appUser.lastName" placeholder="User Last Name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="street">Address</label>
+                                    <input type="text" class="form-control" id="street" name="street"
+                                        [(ngModel)]="appUser.address.street" placeholder="street : 1234 Main St">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="city">City</label>
+                                        <input type="text" class="form-control" id="city" name="city" value="Dehradoon"
+                                            [(ngModel)]="appUser.address.city" placeholder="City : Dehradoon">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="state">State</label>
+                                        <select id="state" class="form-control" [(ngModel)]="appUser.address.state">
+                                            <option>Choose...</option>
+                                            <option value="Uttarakhand" selected>Uttarakhand</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="zipCode">Zip</label>
+                                        <input type="text" class="form-control" id="zipCode" name="zipCode"
+                                            [(ngModel)]="appUser.address.zipCode" placeholder="Ex : 208201">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactDetails">Contact Details</label>
+                                    <input type="text" class="form-control" id="contactDetails" name="contactDetails"
+                                        [(ngModel)]="appUser.contactDetails" placeholder="Ex: 1234567890, 9087654321">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">User Emil Ids</label>
+                                    <input type="text" class="form-control" id="email" name="email"
+                                        placeholder="Ex: test1@email.com, test2@email.com" [(ngModel)]="appUser.email">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="userType">User Type</label>
+                                        <select id="userType" class="form-control" required
+                                            [(ngModel)]="appUser.userType">
+                                            <option selected>Choose...</option>
+                                            <option *ngFor="let userType of userTypes" value="{{userType.id}}">
+                                                {{userType.type}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="isActive">Status</label>
+                                        <select id="isActive" name="isActive" class="form-control"
+                                            [(ngModel)]="appUser.isActive"
+                                            (change)="appUser.isActive = $event.target.value === 'true'">
+                                            <option [value]="true">Active</option>
+                                            <option [value]="false">InActive</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group float-right">
+                                    <button class="btn btn-danger margin-right-5px" (click)="btnResetClick()">
+                                        <i class="fa fa-times argin-right-5px" aria-hidden="true"></i>
+                                        ReSet
+                                    </button>
+                                    <button class="btn btn-success" (click)="btnSaveUserClick()">
+                                        <i class="fa fa-plus argin-right-5px" aria-hidden="true"></i>
+                                        {{formText}}
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

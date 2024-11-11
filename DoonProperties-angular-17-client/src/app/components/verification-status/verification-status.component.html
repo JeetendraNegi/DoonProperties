@@ -1,0 +1,93 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">Verification Status</h5>
+        <p class="card-category">A list of all Verification status</p>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-10">
+            <div style="margin-left: 50px;">
+              <a class="btn btn-success" routerLink="/add-verification-status">
+                <i class="fa fa-plus space" aria-hidden="true"></i>
+                Add New Verification Status
+              </a>
+            </div>
+            <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+              <!-- S. no -->
+              <ng-container matColumnDef="sn">
+                <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by S.No">
+                  S.No
+                </th>
+                <td mat-cell *matCellDef="let element, let i = index"> {{i + 1}} </td>
+              </ng-container>
+
+              <!-- User Type -->
+              <ng-container matColumnDef="process">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by process">
+                  Process
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+              </ng-container>
+
+              <!-- description Column -->
+              <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Description">
+                  Description
+                </th>
+                <td mat-cell *matCellDef="let element" title={{element.description}}>
+                   {{element.description.length > 30 ? element.description.substring(0, 30) + '...' : element.description}}
+                </td>
+              </ng-container>
+
+              <!-- createdDate Column -->
+              <ng-container matColumnDef="createdDate">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Date of Creation">
+                  Date of Creation
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.createdDate | date: long}} </td>
+              </ng-container>
+
+              <!-- Status Column -->
+              <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Status">
+                  Status
+                </th>
+                <td mat-cell *matCellDef="let element" [ngClass]="{ 'active': element.isActive, 'inactive': !element.isActive }">
+                   {{element.isActive ? 'Active' : 'InActive'}}
+                </td>
+              </ng-container>
+
+              <!-- Action Column -->
+              <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef >Actions</th>
+                <td mat-cell *matCellDef="let element"> 
+                  <a class="space" style="cursor: pointer;">
+                    <i class="fa fa-info-circle space" aria-hidden="true"></i>
+                  </a>
+                  <button class="btn btn-info btn-sm space" (click)="btnEditClick(element.id)">
+                    <i class="fa fa-pencil space" aria-hidden="true"></i>
+                    Edit
+                  </button>
+                  <button class="btn btn-danger btn-sm" (click)="btnDeleteClick(element.id)">
+                    <i class="fa fa-trash-o space" aria-hidden="true"></i>
+                    Delete
+                  </button>
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            <div class="paginator-container">
+              <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
