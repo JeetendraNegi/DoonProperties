@@ -1,0 +1,21 @@
+# Dependency directories
+node_modules/
+.angular/
+
+# Build directories
+dist/
+build/
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Other temporary files
+*.tmp
+*.bak
