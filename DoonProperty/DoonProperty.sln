@@ -7,9 +7,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoonProperty", "DoonPropert
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoonProperty.Models", "Common.Models\DoonProperty.Models.csproj", "{3152BEC0-B839-4EE9-8844-9007746459A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoonProperty.Services", "DoonProperty.Services\DoonProperty.Services.csproj", "{34A43D62-97F4-4607-B292-43B1950648A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoonProperty.Services", "DoonProperty.Services\DoonProperty.Services.csproj", "{34A43D62-97F4-4607-B292-43B1950648A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoonProerty.DataModel", "DoonProerty.DataModel\DoonProerty.DataModel.csproj", "{B28FB6E9-CCAE-4BB8-AD98-3BCEC86CD220}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoonProerty.DataModel", "DoonProerty.DataModel\DoonProerty.DataModel.csproj", "{B28FB6E9-CCAE-4BB8-AD98-3BCEC86CD220}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7D766383-1980-4629-B6DC-79705BD82E98}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
