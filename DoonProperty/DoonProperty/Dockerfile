@@ -12,12 +12,12 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["DoonProperty/DoonProperty.csproj", "DoonProperty/"]
-COPY ["DoonProperty.Services/DoonProperty.Services.csproj", "DoonProperty.Services/"]
-COPY ["Common.Models/DoonProperty.Models.csproj", "Common.Models/"]
-COPY ["DoonProerty.DataModel/DoonProerty.DataModel.csproj", "DoonProerty.DataModel/"]
+COPY ["../DoonProperty/DoonProperty.csproj", "DoonProperty/"]
+COPY ["../DoonProperty.Services/DoonProperty.Services.csproj", "DoonProperty.Services/"]
+COPY ["../Common.Models/DoonProperty.Models.csproj", "Common.Models/"]
+COPY ["../DoonProerty.DataModel/DoonProerty.DataModel.csproj", "DoonProerty.DataModel/"]
 RUN dotnet restore "./DoonProperty/DoonProperty.csproj"
-COPY . .
+COPY ../ .
 WORKDIR "/src/DoonProperty"
 RUN dotnet build "./DoonProperty.csproj" -c $BUILD_CONFIGURATION -o /app/build
 

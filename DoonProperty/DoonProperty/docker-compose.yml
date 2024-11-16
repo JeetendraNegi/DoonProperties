@@ -1,0 +1,24 @@
+﻿services:
+  mongo-db:
+    image: mongo:latest
+    container_name: mongo-db
+    ports:
+      - "27016:27017"
+    networks:
+      - mongodb-network
+
+  webapp:
+    build:
+      context: ../..
+      dockerfile: DoonProperty/DoonProperty/Dockerfile
+    container_name: doonproperty
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongo-db
+    networks:
+      - mongodb-network
+
+networks:
+  mongodb-network:
+    driver: bridge
